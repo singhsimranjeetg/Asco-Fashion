@@ -1,0 +1,66 @@
+{% include 'page-header', title: "Cart" %}
+{% render 'bsub-cart' %}
+
+<section class="cart-area section">
+    <div class="cart shopping">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 offset-2">
+            <div class="block">
+              <div class="product-list">
+                <form method="post" action = "/cart">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Item Name</th>
+                        <th class="text-center" >Quantity</th>
+                        <th>Item Price</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for line_item in cart.items %}
+                         
+                      <tr>
+                        <td>
+                          <div class="product-info">
+                            <img width="80" src=" {{ line_item.image | product_img_url :'1920x'  }} " alt=" {{ line_item.title }} ">
+                            <a href=" {{ line_item.url }} "> {{ line_item.title }} </a>
+                             <li
+                        class="product-details__item product-details__item--property
+                        {% if line_item.selling_plan_allocation == empty %} hide {% endif %}"
+                        data-cart-item-selling-plan-name
+                      >
+                        {{ line_item.selling_plan_allocation.selling_plan.name }}
+                      </li>
+                          </div>
+                        </td>
+                        <td>
+                            <input type="number" value="{{ line_item.quantity }}" class="btn btn default" name="updates[]" min="0"  pattern= "[0-9]*">              
+                        </td>
+                        <td> {{ line_item.price | money }} </td>
+                        <td>
+                          <a class="product-remove" href="/cart/change?line={{ forloop.index }}&quantity=0" rel= {{ line_item.id }}>Remove</a>
+                        </td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                  <div class="row justify-content-end cart-total">
+                    <div class="col-md-2">
+                      Total
+                    </div>
+                    <div class="col-md-2">
+                      {{ cart.total_price | money }}
+                    </div>
+                  </div>
+                  <input type="submit" name="checkout" value="Checkout" class="btn btn-main pull-right">
+                  <input type="submit" name="update" class="btn btn-transparent pull-right" id="update-btn" value="Update" >
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

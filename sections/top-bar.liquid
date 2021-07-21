@@ -1,0 +1,48 @@
+<section class = "top__bar">
+  
+    {% for block in section.blocks %}
+     <p class = "top__bar--text" >
+         {{ block.settings.text }}
+     </p>
+</section>
+   
+        
+
+    {% endfor %}
+    
+
+  
+
+
+{% schema %}
+{
+    "name": "Announcement Bar",
+    "blocks" : [
+    {
+        "type": "text",
+        "name": "Message",
+        "settings": [
+
+        {
+            "type" : "text",
+            "label" : "Text ",
+             "id" : "text"
+
+        }
+        ]
+    }],
+
+    "presets": [
+    {
+        "category": "Text",
+        "name": "Announcement Bar"
+    }]
+}
+{% endschema %}
+
+{% stylesheet %}
+
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

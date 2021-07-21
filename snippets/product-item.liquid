@@ -1,0 +1,17 @@
+                 <div class="product-item">
+                   <a href=" {{ product.url }} ">
+                   <div class="product-thumb">      
+                       {% if product.compare_at_price and product.compare_at_price != product.price %}
+ 
+                         <span class="bage">Sale</span>
+                           
+                       {% endif %}
+                     
+                     <img class="img-responsive" src=" {{ product.featured_image.src | img_url: '1920x' }} " alt=" {{ product.title }} ">
+
+                   </div>
+                   <div class="product-content">
+                     <h4> {{ product.title }}</h4>
+                     <p class="price"> {{ product.price | money }} </p>
+                   </div> </a>
+                 </div>

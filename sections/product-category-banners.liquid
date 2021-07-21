@@ -1,0 +1,213 @@
+<section class="product-category">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="title text-center">
+            <h2>Product Category</h2>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="category-box col">
+            <a href=" {{ section.settings.collection_url_1 }} ">
+              <img src=" {{ section.settings.collection_image_1 | img_url: '600x' }} " alt=" {{ section.settings.collection_title_1 }} ">
+              <div class="content">
+                <h3> {{ section.settings.collection_title_1 }} </h3>
+                <p> {{ section.settings.collection_detail_1 }} </p>
+              </div>
+            </a>  
+          </div>
+          
+          <div class="category-box col">
+            <a href=" {{ section.settings.collection_url_2 }} ">
+              <img src=" {{ section.settings.collection_image_2 | img_url: '600x'}} " alt=" {{ section.settings.collection_title_2 }} ">
+              <div class="content">
+                <h3> {{ section.settings.collection_title_2 }} </h3>
+                <p> {{ section.settings.collection_detail_2 }} </p>
+              </div>
+            </a>  
+          </div>
+          </div>
+            <div class="col-md-6">
+            <div class="category-box col">
+            <a href=" {{ section.settings.collection_url_3 }} ">
+              <img src=" {{ section.settings.collection_image_3 | img_url: '600x' }} " alt=" {{ section.settings.collection_title_3 }} ">
+              <div class="content">
+                <h3> {{ section.settings.collection_title_3 }} </h3>
+                <p> {{ section.settings.collection_detail_3 }} </p>
+              </div>
+            </a>  
+          </div>
+
+            <div class="category-box col">
+            <a href=" {{ section.settings.collection_url_4 }} ">
+              <img src=" {{ section.settings.collection_image_4 | img_url: '600x' }} " alt=" {{ section.settings.collection_title_3 }} ">
+              <div class="content">
+                <h3> {{ section.settings.collection_title_4 }} </h3>
+                <p> {{ section.settings.collection_detail_4 }} </p>
+              </div>
+            </a>  
+          </div>
+        </div>
+        
+  
+      </div>
+    </div>
+  </section>
+
+  {% schema%}
+  {
+      "name": "Collections List",
+      "settings": [
+
+        {
+        "type" : "header",
+        "content" : "Collection 1"
+        
+        },
+
+      
+          {
+          "type" : "text",
+          "id" : "collection_title_1",
+          "label" : "Collection Title 1",
+          "default" : "Mens"
+          },
+
+          {
+            "type" : "text",
+            "id" : "collection_detail_1",
+            "label" : "Collection detail 1",
+            "default" : "Shop amazing clothing for men"
+            },
+
+         {
+            "type" : "image_picker",
+            "id" : "collection_image_1",
+            "label" : "Collection Image 1"
+            
+            },
+            
+         {
+            "type" : "url",
+            "id" : "collection_url_1",
+            "label" : "Collection Link 1"
+    
+            },
+
+   
+
+
+
+        {
+        "type" : "header",
+        "content" : "Collection 2"
+        
+        },
+
+      
+          {
+          "type" : "text",
+          "id" : "collection_title_2",
+          "label" : "Collection Title 2",
+          "default" : "Womens"
+          },
+
+          {
+            "type" : "text",
+            "id" : "collection_detail_2",
+            "label" : "Collection detail 2",
+            "default" : "Shop amazing clothing for women"
+            },
+
+         {
+            "type" : "image_picker",
+            "id" : "collection_image_2",
+            "label" : "Collection Image 2"
+            
+            },
+            
+         {
+            "type" : "url",
+            "id" : "collection_url_2",
+            "label" : "Collection Link 2"
+    
+            },
+
+
+
+       {
+        "type" : "header",
+        "content" : "Collection 3"
+        
+        },
+
+      
+          {
+          "type" : "text",
+          "id" : "collection_title_3",
+          "label" : "Collection Title 3",
+          "default" : "Jewellery"
+          },
+
+          {
+            "type" : "text",
+            "id" : "collection_detail_3",
+            "label" : "Collection detail 3",
+            "default" : "Shop amazing jewellery"
+            },
+
+         {
+            "type" : "image_picker",
+            "id" : "collection_image_3",
+            "label" : "Collection Image 3"
+            
+            },
+            
+         {
+            "type" : "url",
+            "id" : "collection_url_3",
+            "label" : "Collection Link 3"
+    
+            },
+
+      
+          {
+          "type" : "text",
+          "id" : "collection_title_4",
+          "label" : "Collection Title 4",
+          "default" : "Clearance"
+          },
+
+          {
+            "type" : "text",
+            "id" : "collection_detail_4",
+            "label" : "Collection detail 4",
+            "default" : "Shop amazing jewellery"
+            },
+
+         {
+            "type" : "image_picker",
+            "id" : "collection_image_4",
+            "label" : "Collection Image 4"
+            
+            },
+            
+         {
+            "type" : "url",
+            "id" : "collection_url_4",
+            "label" : "Collection Link 4"
+    
+            }
+
+
+      ],
+
+    "presets": [
+    {
+        "category": "Collection",
+        "name": "Collection List"
+    }]
+  }
+
+  {% endschema %}

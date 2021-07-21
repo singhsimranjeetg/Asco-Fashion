@@ -1,0 +1,57 @@
+{% assign threshold = section.settings.free-shipping-threshold | times: 100 %}
+{% assign amount_remaining = threshold | minus: cart.items_subtotal_price %}
+{% assign amount_remaining_money = amount_remaining | money %}
+
+<section class = "top__bar">
+{% if cart.items_subtotal_price == 0 %}
+    <p class = "top__bar--text"> {{section.settings.free-shipping-message}} </p>
+
+{% elsif cart.items_subtotal_price > threshold %}
+    <p class = "top__bar--text">{{ section.settings.after-free-message}}</p>
+
+{% else %}
+    <p class = "top__bar--text">{{ section.settings.approaching-message | replace: '*', amount_remaining_money }}</p>
+{% endif %}
+
+</section>
+
+
+
+
+{% schema %}
+{
+    "name": "Free Shipping Bar",
+    "settings": [
+    {
+        "type": "text",
+        "id": "free-shipping-threshold",
+        "label": "Free Shipping Threshold",
+        "info": "Include number only. Don't include $ sign"
+    },
+    {
+        "type": "text",
+        "id": "approaching-message",
+        "label": "Almost Free Shipping Message",
+        "info": "Add a * where you would like the price to appear"
+    },
+    {
+        "type": "text",
+        "id": "free-shipping-message",
+        "label": "Free Shipping Message",
+        "info": "Add message you want to show when cart is empty"
+    },
+    {
+        "type": "text",
+        "id": "after-free-message",
+        "label": "Message after eligible for free Shipping",
+        "info": "Add message you want to show when cart price is above threshold"
+    }
+    ],
+
+    "presets": [
+    {
+        "category": "Text",
+        "name": "Free Shipping Bar"
+    }]
+}
+{% endschema %}

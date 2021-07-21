@@ -1,0 +1,71 @@
+<section class="products section bg-gray">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="title text-center">
+            <h2>Trending Products</h2>
+          </div>
+        </div>
+
+        {% assign collection = collections[section.settings.collection] %}
+  
+        <div class="row">
+             {% for product in collection.products limit: section.settings.product_limit %}
+
+             <div class="col-md-3">
+                {% include "product-item" %}
+ 
+              </div>
+
+
+                
+            {% endfor %} 
+
+
+
+ 
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  {% schema %}
+  
+     {
+         "name" : "Homepage Products",
+         "settings" : [
+         {
+             "type" : "text",
+             "id" : "title",
+             "default" : "Trending Products",
+             "label" : "Heading"             
+         },
+
+         {
+             "type" : "collection",
+             "id" : "collection",
+             "label" : "Collection"
+         },
+
+         {
+             "type" : "range",
+             "id" : "product_limit",
+             "label" : "Product Limit",
+             "min" : 3,
+             "max" : 9,
+             "default" : 6
+         }
+              
+         ],
+
+    "presets": [
+    {
+        "category": "Products",
+        "name": "Homepage Products"
+    }]
+         
+     }
+  
+  {% endschema %}

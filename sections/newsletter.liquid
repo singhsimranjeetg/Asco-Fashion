@@ -1,0 +1,46 @@
+<section class="call-to-action section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <div class="title">
+            <h2>SUBSCRIBE TO NEWSLETTER</h2>
+            <p>Subsribe to our newsletter to receive, <br> promotional and sales deals through email.</p>
+          </div>
+          <div class="col-lg-6 mx-auto">
+            <div class="input-group subscription-form">
+              <input type="text" class="form-control" placeholder="Enter Your Email Address">
+              <span class="input-group-btn">
+                <button class="btn btn-main" type="button">Subscribe Now!</button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% schema %}
+{
+    "name": "Newsletter",
+    "blocks" : [
+    {
+        "type": "text",
+        "name": "Message",
+        "settings": [
+
+        {
+            "type" : "text",
+            "label" : "Text ",
+             "id" : "text"
+
+        }
+        ]
+    }],
+
+    "presets": [
+    {
+        "category": "Text",
+        "name": "Newsletter"
+    }]
+}
+{% endschema %}

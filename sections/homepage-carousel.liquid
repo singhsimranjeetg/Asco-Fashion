@@ -1,0 +1,55 @@
+<div class = "slider__container" >
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1" class=""></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" style="height: 450px;" src=" {{ section.settings.slideshow_img_1 | img_url : '1920x' }} ">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" style="height: 450px;" src=" {{ section.settings.slideshow_img_2 | img_url : '1920x' }} ">
+      </div>
+    </div>
+   <!-- <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>-->
+  </div>
+
+</div>
+
+  {% schema %}
+   
+ {
+  "name" : "Image Slideshow",
+  "settings" : [
+  {
+      "type" : "image_picker",
+      "id" : "slideshow_img_1",
+      "label" : "Slideshow Image 1"
+  },
+  {
+    "type" : "image_picker",
+    "id" : "slideshow_img_2",
+    "label" : "Slideshow Image 2"
+
+  }
+
+  ],
+
+    "presets": [
+    {
+        "category": "Slideshow",
+        "name": "Slideshow Images"
+    }]
+}
+
+  {% endschema %}
+
+

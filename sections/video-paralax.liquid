@@ -1,0 +1,39 @@
+<div class="bg-video">
+                    <video class="bg-video__content" autoplay="" muted="" loop="">
+                        <source src="{{ 'bgvideo.mp4' | asset_url }}" type="video/mp4">
+                            Your browser is not supported!
+                    </video>
+                </div>
+
+
+{% schema %}
+{
+    "name": "Background Video",
+    "blocks" : [
+    {
+        "type": "text",
+        "name": "Message",
+        "settings": [
+
+        {
+            "type" : "text",
+            "label" : "Text ",
+             "id" : "text"
+
+        }
+        ]
+    }],
+
+    "presets": [
+    {
+        "category": "Video",
+        "name": "Video with text"
+    }]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

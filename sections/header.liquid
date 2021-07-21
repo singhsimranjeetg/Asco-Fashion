@@ -1,0 +1,120 @@
+<section class="top-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-xs-12 col-sm-4 center">
+         <a href= "/">
+           <p class="list-inline-item center"><i>Asco Fashion</i></p>
+          </a>   
+        </div>
+
+       <div class="col-md-4 col-xs-12 col-sm-4">
+         <section class="menu">
+        <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                {% for link in linklists[section.settings.main_linklist].links %}
+                 {% if link.links == blank %}
+                 <li class="nav-item active">
+                    <a class="nav-link" href= {{ link.url }}>{{ link.title }}</a>
+                  </li>
+                 {% endif %}
+
+                 {% if link.links != blank %}
+                  
+                 <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Shop
+                    </a>
+                    <div class="dropdown-menu full-width" aria-labelledby="navbarDropdown">
+                     <div class="row"> 
+                     {% for childlink in link.links %}
+                     <div class="col-4">
+                       <div class="dropdown-header">{{ childlink.title }}</div>
+                        <div class="dropdown-divider"></div>      
+
+                          {% for sublink in childlink.links %}
+                            <a href= {{ sublink.url }}>{{ sublink.title }}</a>   
+                            {% endfor %}
+                           </div>             
+                          {% endfor %}
+                    </div>
+                </div>
+              </li>
+                 {% endif %}
+                {% endfor %}
+                        </ul> 
+        </div>
+      </nav>
+    </div>
+  </section>
+ 
+        </div> 
+        <div class="col-md-4 col-xs-12 col-sm-4 center">
+          <ul class="top-menu list-inline float-right center" >
+            <!--<li class="list-inline-item"><a href="account/login" style = "color: #757575;">Login</a></li>--> 
+            <li class="list-inline-item"><a href="/cart" class="cart-icon" style = "color: #757575;"><svg id="Capa_1" x="0px" y="0px" viewBox="0 0 407.453 407.453" xml:space="preserve" class="shopping-icon"><g><path d="M255.099,116.515c4.487,0,8.129-3.633,8.129-8.129c0-4.495-3.642-8.129-8.129-8.129H143.486 c-4.487,0-8.129,3.633-8.129,8.129c0,4.495,3.642,8.129,8.129,8.129H255.099z" style="fill: rgb(1, 0, 2);"></path><path d="M367.062,100.258H311.69c-4.487,0-8.129,3.633-8.129,8.129c0,4.495,3.642,8.129,8.129,8.129h47.243 v274.681H48.519V116.515h44.536c4.487,0,8.129-3.633,8.129-8.129c0-4.495-3.642-8.129-8.129-8.129H40.391 c-4.487,0-8.129,3.633-8.129,8.129v290.938c0,4.495,3.642,8.129,8.129,8.129h326.671c4.487,0,8.129-3.633,8.129-8.129V108.386 C375.191,103.891,371.557,100.258,367.062,100.258z" style="fill: rgb(1, 0, 2);"></path><path d="M282.59,134.796c4.487,0,8.129-3.633,8.129-8.129V67.394C290.718,30.238,250.604,0,201.101,0 c-49.308,0-89.414,30.238-89.414,67.394v59.274c0,4.495,3.642,8.129,8.129,8.129s8.129-3.633,8.129-8.129V67.394 c0-28.198,32.823-51.137,73.36-51.137c40.334,0,73.157,22.939,73.157,51.137v59.274 C274.461,131.163,278.095,134.796,282.59,134.796z" style="fill: rgb(1, 0, 2);"></path><path d="M98.892,147.566c0,11.526,9.389,20.907,20.923,20.907c11.534,0,20.923-9.38,20.923-20.907 c0-4.495-3.642-8.129-8.129-8.129s-8.129,3.633-8.129,8.129c0,2.561-2.089,4.65-4.666,4.65c-2.569,0-4.666-2.089-4.666-4.65 c0-4.495-3.642-8.129-8.129-8.129S98.892,143.071,98.892,147.566z" style="fill: rgb(1, 0, 2);"></path><path d="M282.59,168.473c11.534,0,20.923-9.38,20.923-20.907c0-4.495-3.642-8.129-8.129-8.129 c-4.487,0-8.129,3.633-8.129,8.129c0,2.561-2.089,4.65-4.666,4.65c-2.577,0-4.666-2.089-4.666-4.65 c0-4.495-3.642-8.129-8.129-8.129c-4.487,0-8.129,3.633-8.129,8.129C261.667,159.092,271.055,168.473,282.59,168.473z" style="fill: rgb(1, 0, 2);"></path></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg><span class="item-count">{{ cart.item_count }}</span></a></li>
+            <!---
+            {% if shop.customer_accounts_enabled %}
+            {% if customer %}
+            <li class="list-inline-item"><a href="/account"><i class="fa fa-user"></i>My Account</a></li>
+            <li class="list-inline-item"><a href="/account"><i class="fa fa-sign-out"></i>Log Out</a></li>
+            {% else %}
+            <li class="list-inline-item"><a href="account/login"><i class="fa fa-sign-in"></i><p>Login</p></a></li>
+            {% endif %}          
+            {% endif %}   
+            --->
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+
+  {% schema%}
+  {
+      "name": "Main Menu",
+      "settings": [
+          {
+          "type" : "link_list",
+          "id" : "main_linklist",
+          "label" : "Menu",
+          "default" : "main-menu"
+          }
+      ],
+
+    "presets": [
+    {
+        "category": "Header",
+        "name": "Header"
+    }]
+  }
+
+  {% endschema %}
+  
+  
+  <!-- 
+
+   
+
+          <!-- Site Logo -->
+      <!-- <div class="logo text-center">
+            <a href="/">
+           
+              <svg width="205px" height="29px" viewBox="0 0 155 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-size="40" font-family="AustinBold, Austin" font-weight="bold">
+                  <g id="Group" transform="translate(-108.000000, -297.000000)" fill="#000000">
+                    <text id="fashion">         
+                  <tspan x="108.94" y="325">ASCO</tspan>   
+                    </text>
+                  </g>
+                </g>
+              </svg>
+            </a>
+          </div>
+-->
